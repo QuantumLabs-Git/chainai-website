@@ -1,0 +1,244 @@
+@import '@/styles/variables';
+
+.faqSection {
+  padding: 100px 0;
+  background: linear-gradient(180deg, #0a0e27 0%, #0f1329 100%);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 60px;
+
+  .badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 20px;
+    color: #8b5cf6;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .title {
+    font-size: 42px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+    line-height: 1.2;
+
+    @media (max-width: 768px) {
+      font-size: 32px;
+    }
+  }
+
+  .subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+.faqContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.faqColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.faqItem {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba(139, 92, 246, 0.2);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  &.active {
+    border-color: rgba(139, 92, 246, 0.3);
+    background: rgba(139, 92, 246, 0.05);
+
+    .faqQuestion {
+      color: #8b5cf6;
+
+      .icon {
+        transform: rotate(45deg);
+        background: #8b5cf6;
+      }
+    }
+
+    .faqAnswer {
+      max-height: 500px;
+      padding: 0 24px 24px;
+      opacity: 1;
+    }
+  }
+}
+
+.faqQuestion {
+  padding: 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s ease;
+  user-select: none;
+
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    text-align: left;
+    line-height: 1.4;
+    flex: 1;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background: white;
+      transition: all 0.3s ease;
+    }
+
+    &::before {
+      width: 12px;
+      height: 2px;
+    }
+
+    &::after {
+      width: 2px;
+      height: 12px;
+    }
+  }
+}
+
+.faqAnswer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  padding: 0 24px;
+
+  p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    font-size: 15px;
+    margin: 0;
+    text-align: left;
+  }
+
+  ul {
+    margin: 12px 0 0;
+    padding-left: 20px;
+    
+    li {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 15px;
+      line-height: 1.8;
+      list-style: none;
+      position: relative;
+      padding-left: 20px;
+      text-align: left;
+
+      &::before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: #8b5cf6;
+      }
+    }
+  }
+}
+
+.contactCTA {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 60px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+  p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+    }
+
+    svg {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover svg {
+      transform: translateX(3px);
+    }
+  }
+}
