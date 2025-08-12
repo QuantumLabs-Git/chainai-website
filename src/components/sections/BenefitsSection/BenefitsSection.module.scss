@@ -1,0 +1,419 @@
+@import '@/styles/variables';
+
+.benefitsSection {
+  padding: 0;
+  
+  .benefitsGrid {
+    margin-top: 80px;
+    margin-bottom: 100px;
+  }
+  
+  .benefitCard {
+    text-align: center;
+    padding: 40px 30px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    height: 100%;
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+    
+    &:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--color-accent);
+      
+      &::before {
+        transform: translateX(0);
+      }
+      
+      .benefitIcon {
+        border-color: var(--color-accent);
+        
+        .icon {
+          transform: scale(1.1);
+        }
+      }
+    }
+    
+    .benefitIcon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border-radius: 15px;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      
+      .icon {
+        font-size: 36px;
+        transition: all 0.3s ease;
+      }
+    }
+    
+    .benefitMetric {
+      margin-bottom: 20px;
+      
+      .metricNumber {
+        font-size: 48px;
+        font-weight: 700;
+        color: var(--color-accent);
+        display: block;
+        line-height: 1;
+      }
+      
+      .metricLabel {
+        font-size: 14px;
+        color: var(--color-text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 5px;
+        display: block;
+      }
+    }
+    
+    .benefitTitle {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    
+    .benefitDescription {
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+  }
+  
+  .statsSection {
+    padding: 80px 0;
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 30px;
+    
+    .statsContent {
+      padding-right: 50px;
+      
+      h3 {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 40px;
+        line-height: 1.2;
+      }
+      
+      @media (max-width: 991px) {
+        padding-right: 0;
+        margin-bottom: 40px;
+      }
+    }
+    
+    .statsList {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .statItem {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(255, 255, 255, 0.1);
+        transform: translateX(10px);
+        
+        .statNumber {
+          color: var(--color-accent);
+        }
+      }
+      
+      .statNumber {
+        font-size: 42px;
+        font-weight: 700;
+        color: var(--color-text);
+        min-width: 100px;
+        text-align: center;
+        transition: color 0.3s ease;
+      }
+      
+      .statText {
+        flex: 1;
+        
+        h4 {
+          font-size: 20px;
+          font-weight: 600;
+          margin-bottom: 5px;
+        }
+        
+        p {
+          color: var(--color-text-secondary);
+          font-size: 14px;
+          line-height: 1.5;
+          margin: 0;
+        }
+      }
+    }
+    
+    .statsVisual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      min-height: 500px;
+      
+      @media (max-width: 991px) {
+        min-height: 400px;
+      }
+    }
+  }
+}
+
+// Enhanced Responsive Styles
+@include small-phone {
+  .benefitsSection {
+    .benefitsGrid {
+      margin-top: 50px;
+      margin-bottom: 60px;
+    }
+    
+    .benefitCard {
+      padding: 24px 16px;
+      margin-bottom: 20px;
+      
+      .benefitIcon {
+        width: 56px;
+        height: 56px;
+        margin-bottom: 20px;
+        
+        .icon {
+          font-size: 28px;
+        }
+      }
+      
+      .benefitMetric {
+        margin-bottom: 16px;
+        
+        .metricNumber {
+          font-size: 32px;
+        }
+        
+        .metricLabel {
+          font-size: 12px;
+        }
+      }
+      
+      .benefitTitle {
+        font-size: 18px;
+        margin-bottom: 12px;
+      }
+      
+      .benefitDescription {
+        font-size: 14px;
+      }
+    }
+    
+    .statsSection {
+      padding: 40px 0;
+      border-radius: 20px;
+      
+      .statsContent {
+        padding-right: 0;
+        text-align: center;
+        
+        h3 {
+          font-size: 24px;
+          margin-bottom: 30px;
+        }
+      }
+      
+      .statsList {
+        gap: 20px;
+      }
+      
+      .statItem {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+        padding: 16px;
+        
+        &:hover {
+          transform: none;
+        }
+        
+        .statNumber {
+          font-size: 32px;
+          min-width: auto;
+        }
+        
+        .statText {
+          h4 {
+            font-size: 16px;
+          }
+          
+          p {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include phone {
+  .benefitsSection {
+    .benefitsGrid {
+      margin-top: 60px;
+      margin-bottom: 80px;
+    }
+    
+    .benefitCard {
+      padding: 30px 20px;
+      
+      .benefitIcon {
+        width: 60px;
+        height: 60px;
+        
+        .icon {
+          font-size: 32px;
+        }
+      }
+      
+      .benefitMetric {
+        .metricNumber {
+          font-size: 40px;
+        }
+      }
+      
+      .benefitTitle {
+        font-size: 20px;
+      }
+    }
+    
+    .statsSection {
+      padding: 60px 20px;
+      
+      .statsContent h3 {
+        font-size: 28px;
+      }
+      
+      .statItem {
+        gap: 15px;
+        
+        .statNumber {
+          font-size: 36px;
+        }
+        
+        .statText {
+          h4 {
+            font-size: 18px;
+          }
+        }
+      }
+      
+      .statsVisual {
+        min-height: 350px;
+      }
+    }
+  }
+}
+
+@include tablet {
+  .benefitsSection {
+    .benefitCard {
+      padding: 35px 25px;
+      
+      .benefitIcon {
+        width: 65px;
+        height: 65px;
+        
+        .icon {
+          font-size: 34px;
+        }
+      }
+      
+      .benefitMetric {
+        .metricNumber {
+          font-size: 44px;
+        }
+      }
+    }
+    
+    .statsSection {
+      .statsContent {
+        padding-right: 30px;
+        
+        h3 {
+          font-size: 32px;
+        }
+      }
+      
+      .statItem {
+        .statNumber {
+          font-size: 38px;
+        }
+      }
+      
+      .statsVisual {
+        min-height: 450px;
+      }
+    }
+  }
+}
+
+@include tablet-landscape {
+  .benefitsSection {
+    .statsSection {
+      .statsContent {
+        padding-right: 0;
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+// Touch device optimizations
+@include touch-device {
+  .benefitsSection {
+    .benefitCard {
+      &:hover {
+        transform: none;
+      }
+      
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+    
+    .statItem {
+      &:hover {
+        transform: none;
+      }
+      
+      &:active {
+        background: rgba(255, 255, 255, 0.06);
+      }
+    }
+  }
+}

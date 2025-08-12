@@ -1,0 +1,283 @@
+@import '@/styles/variables';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  
+  // Add a subtle gradient at the top for better visibility
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(10, 10, 10, 0.3) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  &.sticky {
+    background-color: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  
+  @include phone {
+    padding: 12px 0;
+  }
+  
+  @include tablet {
+    padding: 16px 0;
+  }
+}
+
+.headerLeft {
+  flex: 0 0 auto;
+  z-index: 2;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  
+  img {
+    height: 120px;
+    width: auto;
+    transition: height 0.3s ease;
+  }
+  
+  @include small-phone {
+    img {
+      height: 80px;
+    }
+  }
+  
+  @include phone {
+    img {
+      height: 90px;
+    }
+  }
+  
+  @include tablet {
+    img {
+      height: 100px;
+    }
+  }
+}
+
+.navigation {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  
+  @include tablet-landscape {
+    display: none;
+  }
+}
+
+.mainMenu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  
+  @include tablet {
+    gap: 4px;
+  }
+}
+
+.menuItem {
+  position: relative;
+  
+  a {
+    padding: 8px 16px;
+    font-size: 15px;
+    white-space: nowrap;
+    
+    @include tablet {
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+    
+    &:hover {
+      color: var(--color-text);
+    }
+    
+    &.active {
+      color: var(--color-text);
+      background-color: rgba(255, 255, 255, 0.05);
+      border-color: var(--color-border);
+    }
+  }
+}
+
+.headerRight {
+  flex: 0 0 auto;
+  z-index: 2;
+}
+
+.btnGroup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  
+  @include phone {
+    gap: 8px;
+  }
+  
+  // Hide CTA button on mobile, show menu button
+  .tf-btn {
+    @include tablet-landscape {
+      display: none;
+    }
+  }
+}
+
+.mobileMenuBtn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  -webkit-tap-highlight-color: transparent;
+  
+  @include tablet-landscape {
+    display: flex;
+  }
+  
+  &:hover {
+    border-color: var(--color-text);
+    background-color: rgba(255, 255, 255, 0.05);
+    
+    i {
+      color: var(--color-text);
+    }
+  }
+  
+  i {
+    font-size: 20px;
+    color: var(--color-text-secondary);
+    transition: color var(--transition-base);
+  }
+}
+
+// Mobile menu overlay
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(10, 10, 10, 0.98);
+  z-index: 999;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  
+  &.active {
+    transform: translateX(0);
+  }
+}
+
+.mobileMenuInner {
+  padding: 80px 20px 40px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileMenuList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+  li {
+    margin-bottom: 8px;
+    
+    a {
+      display: block;
+      padding: 16px 20px;
+      font-size: 18px;
+      font-weight: 500;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      
+      &:hover,
+      &.active {
+        background-color: rgba(255, 255, 255, 0.05);
+        border-color: var(--color-border);
+      }
+    }
+  }
+}
+
+.mobileMenuFooter {
+  margin-top: auto;
+  padding-top: 40px;
+  
+  .tf-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-text);
+    
+    i {
+      color: var(--color-text);
+    }
+  }
+  
+  i {
+    font-size: 20px;
+    color: var(--color-text-secondary);
+  }
+}

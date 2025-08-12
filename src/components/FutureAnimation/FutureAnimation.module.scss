@@ -1,0 +1,207 @@
+@import '@/styles/variables';
+
+.futureAnimationContainer {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: radial-gradient(ellipse at center, rgba(0, 255, 136, 0.05) 0%, rgba(10, 10, 10, 0.9) 100%);
+  box-shadow: 
+    0 0 50px rgba(0, 255, 136, 0.1),
+    inset 0 0 50px rgba(0, 255, 136, 0.05);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent, var(--color-accent), transparent);
+    border-radius: 20px;
+    opacity: 0.3;
+    z-index: -1;
+    animation: borderRotate 8s linear infinite;
+  }
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.overlayElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.aiChip {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(0, 255, 136, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  
+  span {
+    font-family: var(--font-2);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+  
+  .pulseIndicator {
+    width: 8px;
+    height: 8px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+}
+
+.dataStream {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(0, 255, 136, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  
+  span {
+    font-family: var(--font-2);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    font-weight: 600;
+    opacity: 0;
+    animation: fadeInOut 3s ease-in-out infinite;
+  }
+}
+
+.quantumGrid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background-image: 
+    linear-gradient(rgba(0, 255, 136, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 136, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.3;
+  animation: gridMove 20s linear infinite;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, transparent 30%, rgba(10, 10, 10, 0.8) 70%);
+  }
+}
+
+@keyframes borderRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes gridMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+// Responsive
+@include small-phone {
+  .futureAnimationContainer {
+    height: 300px;
+    margin-bottom: 30px;
+  }
+  
+  .aiChip,
+  .dataStream {
+    padding: 8px 16px;
+    
+    span {
+      font-size: 10px;
+    }
+  }
+  
+  .aiChip {
+    top: 20px;
+    left: 20px;
+  }
+  
+  .dataStream {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .quantumGrid {
+    width: 200px;
+    height: 200px;
+    background-size: 30px 30px;
+  }
+}
+
+@include phone {
+  .futureAnimationContainer {
+    height: 350px;
+  }
+}
+
+@include tablet {
+  .futureAnimationContainer {
+    height: 450px;
+  }
+  
+  .quantumGrid {
+    width: 250px;
+    height: 250px;
+    background-size: 40px 40px;
+  }
+}

@@ -1,0 +1,58 @@
+@font-face {
+  font-family: 'DepartureMono-Regular';
+  src: url('/fonts/DepartureMono-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OverusedGrotesk-Book';
+  src: url('/fonts/OverusedGrotesk-Book.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OverusedGrotesk-Medium';
+  src: url('/fonts/OverusedGrotesk-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src: url('/icons/icomoon.eot?t9oq3b');
+  src: url('/icons/icomoon.eot?t9oq3b#iefix') format('embedded-opentype'),
+    url('/icons/icomoon.ttf?t9oq3b') format('truetype'),
+    url('/icons/icomoon.woff?t9oq3b') format('woff'),
+    url('/icons/icomoon.svg?t9oq3b#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-circle:before { content: "\e900"; }
+.icon-arrow-caret-down:before { content: "\e901"; }
+.icon-arrow-top:before { content: "\e902"; }
+.icon-cloud:before { content: "\e903"; }
+.icon-close:before { content: "\e904"; }
+.icon-gemini:before { content: "\e905"; }
+.icon-gpt:before { content: "\e906"; }
+.icon-menu:before { content: "\e907"; }
+.icon-micro:before { content: "\e908"; }
+.icon-plus:before { content: "\e909"; }

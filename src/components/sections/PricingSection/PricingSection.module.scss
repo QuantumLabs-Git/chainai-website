@@ -1,0 +1,411 @@
+@import '@/styles/variables';
+
+.pricingSection {
+  padding: 0;
+  
+  .pricingGrid {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+  
+  .pricingCard {
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 40px;
+    height: 100%;
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    
+    &.highlighted {
+      background: rgba(0, 255, 136, 0.05);
+      border-color: rgba(0, 255, 136, 0.3);
+      transform: scale(1.05);
+      
+      @media (max-width: 991px) {
+        transform: scale(1);
+      }
+    }
+    
+    &:hover,
+    &.active {
+      transform: translateY(-10px);
+      border-color: var(--color-accent);
+      
+      &::before {
+        opacity: 1;
+      }
+      
+      .priceWrapper {
+        .price {
+          color: var(--color-accent);
+        }
+      }
+    }
+    
+    .popularBadge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--color-accent);
+      color: var(--color-primary);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .pricingHeader {
+      text-align: center;
+      margin-bottom: 40px;
+      
+      .planName {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+      
+      .priceWrapper {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        margin-bottom: 15px;
+        
+        .currency {
+          font-size: 24px;
+          margin-top: 10px;
+          margin-right: 5px;
+          color: var(--color-text-secondary);
+        }
+        
+        .price {
+          font-size: 48px;
+          font-weight: 700;
+          line-height: 1;
+          transition: color 0.3s ease;
+        }
+      }
+      
+      .planDescription {
+        color: var(--color-text-secondary);
+        font-size: 16px;
+      }
+    }
+    
+    .pricingFeatures {
+      margin-bottom: 40px;
+      
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        
+        li {
+          display: flex;
+          align-items: start;
+          margin-bottom: 18px;
+          
+          i {
+            color: var(--color-accent);
+            font-size: 16px;
+            margin-right: 12px;
+            margin-top: 2px;
+            flex-shrink: 0;
+          }
+          
+          span {
+            color: var(--color-text-secondary);
+            font-size: 15px;
+            line-height: 1.5;
+          }
+        }
+      }
+    }
+    
+    .pricingFooter {
+      text-align: center;
+      
+      .tf-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  }
+  
+  .customCta {
+    padding: 80px 40px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+    
+    h3 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    p {
+      font-size: 18px;
+      color: var(--color-text-secondary);
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .tf-btn {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+// Enhanced Responsive Styles
+@include small-phone {
+  .pricingSection {
+    .pricingGrid {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    
+    .pricingCard {
+      padding: 24px 20px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      
+      &:hover,
+      &.active {
+        transform: none;
+      }
+      
+      .popularBadge {
+        top: 12px;
+        right: 12px;
+        font-size: 10px;
+        padding: 4px 12px;
+      }
+      
+      .pricingHeader {
+        margin-bottom: 30px;
+        
+        .planName {
+          font-size: 20px;
+          margin-bottom: 16px;
+        }
+        
+        .priceWrapper {
+          margin-bottom: 12px;
+          
+          .currency {
+            font-size: 18px;
+            margin-top: 8px;
+          }
+          
+          .price {
+            font-size: 32px;
+          }
+        }
+        
+        .planDescription {
+          font-size: 14px;
+        }
+      }
+      
+      .pricingFeatures {
+        margin-bottom: 30px;
+        
+        ul li {
+          margin-bottom: 14px;
+          
+          i {
+            font-size: 14px;
+            margin-right: 10px;
+          }
+          
+          span {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+    
+    .customCta {
+      padding: 40px 20px;
+      border-radius: 20px;
+      
+      h3 {
+        font-size: 24px;
+        margin-bottom: 12px;
+      }
+      
+      p {
+        font-size: 14px;
+        margin-bottom: 24px;
+      }
+    }
+  }
+}
+
+@include phone {
+  .pricingSection {
+    .pricingGrid {
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+    
+    .pricingCard {
+      padding: 30px 25px;
+      
+      .popularBadge {
+        font-size: 11px;
+        padding: 5px 14px;
+      }
+      
+      .pricingHeader {
+        .planName {
+          font-size: 24px;
+        }
+        
+        .priceWrapper {
+          .currency {
+            font-size: 20px;
+          }
+          
+          .price {
+            font-size: 40px;
+          }
+        }
+        
+        .planDescription {
+          font-size: 15px;
+        }
+      }
+      
+      .pricingFeatures {
+        ul li {
+          margin-bottom: 16px;
+          
+          span {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    
+    .customCta {
+      padding: 50px 30px;
+      
+      h3 {
+        font-size: 28px;
+      }
+      
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@include tablet {
+  .pricingSection {
+    .pricingCard {
+      padding: 35px;
+      
+      .pricingHeader {
+        .planName {
+          font-size: 26px;
+        }
+        
+        .priceWrapper {
+          .price {
+            font-size: 44px;
+          }
+        }
+      }
+    }
+    
+    .customCta {
+      padding: 70px 40px;
+      
+      h3 {
+        font-size: 30px;
+      }
+      
+      p {
+        font-size: 17px;
+      }
+    }
+  }
+}
+
+@include tablet-landscape {
+  .pricingSection {
+    .pricingCard {
+      &.highlighted {
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+// Touch device optimizations
+@include touch-device {
+  .pricingSection {
+    .pricingCard {
+      &:hover,
+      &.active {
+        transform: none;
+      }
+      
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+}

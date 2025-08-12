@@ -1,0 +1,521 @@
+@import '@/styles/variables';
+
+.aboutHero {
+  padding: 80px 0;
+  
+  .heroContent {
+    h1 {
+      margin-bottom: 30px;
+    }
+    
+    .s-sub_title {
+      font-size: 20px;
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+      margin-bottom: 50px;
+    }
+    
+    .heroStats {
+      display: flex;
+      gap: 50px;
+      
+      .statItem {
+        text-align: center;
+        
+        h3 {
+          font-size: 42px;
+          font-weight: 700;
+          color: var(--color-accent);
+          margin-bottom: 10px;
+        }
+        
+        p {
+          color: var(--color-text-secondary);
+          font-size: 16px;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        gap: 30px;
+        
+        .statItem h3 {
+          font-size: 32px;
+        }
+      }
+    }
+  }
+  
+  .heroVisual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+    img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      filter: brightness(0.8);
+      border-radius: 20px;
+    }
+  }
+}
+
+.missionVision {
+  padding: 100px 0;
+  background: rgba(255, 255, 255, 0.01);
+  
+  .missionCard,
+  .visionCard {
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    height: 100%;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 255, 136, 0.05) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    &:hover {
+      transform: translateY(-5px);
+      border-color: var(--color-accent);
+      
+      &::before {
+        opacity: 1;
+      }
+      
+      .cardIcon {
+        transform: scale(1.1) rotate(5deg);
+        background: var(--color-accent);
+        
+        i {
+          color: var(--color-primary);
+        }
+      }
+    }
+    
+    .cardIcon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+      
+      i {
+        font-size: 36px;
+        color: var(--color-accent);
+        transition: color 0.3s ease;
+      }
+    }
+    
+    h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+    }
+  }
+}
+
+.ourStory {
+  padding: 100px 0;
+  
+  .storyContent {
+    margin-top: 60px;
+  }
+  
+  .storyText {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    
+    p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--color-text-secondary);
+      margin-bottom: 30px;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.coreValues {
+  padding: 100px 0;
+  background: rgba(255, 255, 255, 0.01);
+  
+  .valuesGrid {
+    margin-top: 60px;
+  }
+  
+  .valueCard {
+    text-align: center;
+    padding: 40px 30px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    height: 100%;
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+    
+    &:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.04);
+      
+      .valueIcon {
+        background: var(--color-accent);
+        
+        i {
+          color: var(--color-primary);
+        }
+      }
+    }
+    
+    .valueIcon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      transition: all 0.3s ease;
+      
+      i {
+        font-size: 36px;
+        color: var(--color-accent);
+        transition: color 0.3s ease;
+      }
+    }
+    
+    h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    
+    p {
+      color: var(--color-text-secondary);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+  }
+}
+
+.teamSection {
+  padding: 100px 0;
+  
+  .teamGrid {
+    margin-top: 60px;
+  }
+  
+  .teamMember {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+    
+    &:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(0, 255, 136, 0.3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      
+      &::before {
+        transform: translateX(0);
+      }
+    }
+    
+    .memberImage {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 25px;
+      position: relative;
+      
+      // AI-themed hexagonal frame
+      &::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        background: conic-gradient(
+          from 180deg at 50% 50%,
+          rgba(0, 255, 136, 0) 0deg,
+          rgba(0, 255, 136, 0.4) 60deg,
+          rgba(0, 255, 136, 0.1) 120deg,
+          rgba(0, 255, 136, 0.4) 180deg,
+          rgba(0, 255, 136, 0) 240deg,
+          rgba(0, 255, 136, 0.4) 300deg,
+          rgba(0, 255, 136, 0) 360deg
+        );
+        border-radius: 50%;
+        animation: rotate 10s linear infinite;
+        opacity: 0.6;
+        transition: opacity 0.3s ease;
+      }
+      
+      // Inner glow effect
+      &::after {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        border: 2px solid rgba(0, 255, 136, 0.3);
+        border-radius: 50%;
+        box-shadow: 
+          inset 0 0 20px rgba(0, 255, 136, 0.1),
+          0 0 20px rgba(0, 255, 136, 0.1);
+      }
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        position: relative;
+        z-index: 1;
+        transition: transform 0.3s ease;
+        border: 3px solid rgba(10, 10, 10, 0.9);
+      }
+      
+      // AI Avatar styles
+      canvas {
+        border: 3px solid rgba(10, 10, 10, 0.9);
+      }
+      
+      &:hover {
+        &::before {
+          opacity: 1;
+          animation-duration: 3s;
+        }
+        
+        &::after {
+          border-color: var(--color-accent);
+          box-shadow: 
+            inset 0 0 30px rgba(0, 255, 136, 0.2),
+            0 0 30px rgba(0, 255, 136, 0.3);
+        }
+        
+        img {
+          transform: scale(1.05);
+        }
+      }
+    }
+    
+    h4 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-family: var(--font-2);
+      letter-spacing: 0.02em;
+      background: linear-gradient(135deg, var(--color-text) 0%, var(--color-accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+    
+    .memberRole {
+      color: var(--color-accent);
+      font-size: 16px;
+      margin-bottom: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      position: relative;
+      display: inline-block;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 2px;
+        background: var(--color-accent);
+        opacity: 0.5;
+      }
+    }
+    
+    .memberBio {
+      color: var(--color-text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 280px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.aboutCta {
+  padding: 100px 0;
+  
+  .ctaWrapper {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.05) 0%, rgba(0, 255, 136, 0.02) 100%);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 255, 136, 0.05) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+    
+    h2 {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 20px;
+    }
+    
+    .s-sub_title {
+      position: relative;
+      z-index: 1;
+      font-size: 18px;
+      color: var(--color-text-secondary);
+      margin-bottom: 30px;
+    }
+    
+    .ctaButtons {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      
+      @media (max-width: 576px) {
+        flex-direction: column;
+        align-items: center;
+        
+        .tf-btn {
+          width: 100%;
+          max-width: 250px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 991px) {
+  .aboutHero {
+    .heroContent {
+      margin-bottom: 50px;
+    }
+  }
+  
+  .missionVision {
+    .missionCard,
+    .visionCard {
+      padding: 40px 30px;
+      margin-bottom: 30px;
+      
+      h2 {
+        font-size: 28px;
+      }
+      
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+  
+  .teamSection {
+    .teamMember {
+      .memberImage {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .aboutHero {
+    .heroStats {
+      justify-content: center;
+    }
+  }
+  
+  .aboutCta {
+    .ctaWrapper {
+      padding: 60px 30px;
+    }
+  }
+}

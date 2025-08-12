@@ -1,0 +1,7 @@
+@import '@/styles/variables';
+
+.odometer {
+  font-family: var(--font-2);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}

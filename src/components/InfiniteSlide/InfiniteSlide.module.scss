@@ -1,0 +1,14 @@
+@import '@/styles/variables';
+
+.infiniteSlide {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.slideTrack {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}

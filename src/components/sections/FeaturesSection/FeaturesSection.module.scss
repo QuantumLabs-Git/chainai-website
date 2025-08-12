@@ -1,0 +1,261 @@
+@import '@/styles/variables';
+
+.sectionFeature {
+  position: relative;
+}
+
+.flatAnimateTab {
+  position: relative;
+}
+
+.sImgItem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  z-index: -1;
+  opacity: 0.5;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.tabContent {
+  margin-bottom: 60px;
+}
+
+.animationWrapper {
+  position: relative;
+  margin: 60px 0;
+}
+
+.featureInfo {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 30px 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  max-width: 600px;
+  width: 90%;
+  
+  .s-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--color-accent);
+  }
+  
+  .s-sub_title {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.imageWithText {
+  text-align: center;
+  
+  img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin: 0 auto 40px;
+    display: block;
+  }
+  
+  .box-text {
+    margin-bottom: 0;
+    
+    .s-title {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.tabCanDo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+.navTabItem {
+  position: relative;
+}
+
+.btnTab {
+  &.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-border);
+    color: var(--color-text);
+  }
+}
+
+// Enhanced Responsive Styles
+@include small-phone {
+  .sImgItem {
+    width: 300px;
+    height: 300px;
+    opacity: 0.3;
+  }
+  
+  .tabContent {
+    margin-bottom: 30px;
+  }
+  
+  .animationWrapper {
+    margin: 30px 0;
+  }
+  
+  .featureInfo {
+    position: static;
+    transform: none;
+    padding: 20px 16px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 100%;
+    
+    .s-title {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    
+    .s-sub_title {
+      font-size: 13px;
+    }
+  }
+  
+  .imageWithText {
+    img {
+      margin-bottom: 20px;
+    }
+    
+    .box-text {
+      .s-title {
+        font-size: 20px;
+        margin-bottom: 12px;
+      }
+      
+      .s-sub_title {
+        font-size: 14px;
+      }
+    }
+  }
+  
+  .tabCanDo {
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+}
+
+@include phone {
+  .sImgItem {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .tabContent {
+    margin-bottom: 40px;
+  }
+  
+  .animationWrapper {
+    margin: 40px 0;
+  }
+  
+  .featureInfo {
+    position: static;
+    transform: none;
+    padding: 25px 20px;
+    
+    .s-title {
+      font-size: 20px;
+    }
+    
+    .s-sub_title {
+      font-size: 14px;
+    }
+  }
+  
+  .imageWithText {
+    img {
+      margin-bottom: 30px;
+    }
+    
+    .box-text {
+      .s-title {
+        font-size: 24px;
+      }
+    }
+  }
+  
+  .tabCanDo {
+    gap: 6px;
+  }
+}
+
+@include tablet {
+  .sImgItem {
+    width: 500px;
+    height: 500px;
+  }
+  
+  .tabContent {
+    margin-bottom: 50px;
+  }
+  
+  .animationWrapper {
+    margin: 50px 0;
+  }
+  
+  .featureInfo {
+    padding: 25px 30px;
+    
+    .s-title {
+      font-size: 22px;
+    }
+  }
+  
+  .imageWithText {
+    .box-text {
+      .s-title {
+        font-size: 26px;
+      }
+    }
+  }
+}
+
+@include tablet-landscape {
+  .featureInfo {
+    position: static;
+    transform: none;
+    margin-top: 30px;
+  }
+}
+
+// Touch device optimizations
+@include touch-device {
+  .btnTab {
+    &:hover {
+      background-color: transparent;
+    }
+    
+    &:active {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+}

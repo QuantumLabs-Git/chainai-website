@@ -1,0 +1,239 @@
+@import '@/styles/variables';
+
+.footerBody {
+  padding: 80px 0 40px;
+  position: relative;
+}
+
+.footerInnerWrap {
+  position: relative;
+}
+
+.ftBgItem {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0.5;
+  pointer-events: none;
+  
+  svg {
+    width: 300px;
+    height: auto;
+  }
+}
+
+.footerInnerLink {
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.footerLogo {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  
+  img {
+    height: 120px;
+    width: auto;
+  }
+}
+
+.footerColBlock {
+  .footerHeading {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+}
+
+.footerMenuList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+  li {
+    margin-bottom: 12px;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  a {
+    display: inline-block;
+    transition: all var(--transition-base);
+    
+    &:hover {
+      color: var(--color-accent);
+      transform: translateX(5px);
+    }
+  }
+}
+
+.footerInnerBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 40px;
+  
+  p {
+    margin: 0;
+    color: var(--color-text-secondary);
+  }
+  
+  a {
+    color: var(--color-text-secondary);
+    transition: color var(--transition-base);
+    
+    &:hover {
+      color: var(--color-text);
+    }
+  }
+}
+
+// Enhanced Responsive Styles
+@include small-phone {
+  .footerBody {
+    padding: 40px 0 20px;
+  }
+  
+  .ftBgItem {
+    display: none; // Hide decorative element on small phones
+  }
+  
+  .footerInnerLink {
+    margin-bottom: 40px;
+  }
+  
+  .footerLogo {
+    img {
+      height: 80px;
+    }
+  }
+  
+  .footerColBlock {
+    margin-bottom: 30px;
+    text-align: center;
+    
+    .footerHeading {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+  }
+  
+  .footerMenuList {
+    li {
+      margin-bottom: 10px;
+    }
+    
+    a {
+      font-size: 14px;
+    }
+  }
+  
+  .footerInnerBottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    padding-top: 30px;
+    
+    p, a {
+      font-size: 12px;
+    }
+  }
+}
+
+@include phone {
+  .footerBody {
+    padding: 60px 0 30px;
+  }
+  
+  .ftBgItem {
+    svg {
+      width: 200px;
+    }
+  }
+  
+  .footerInnerLink {
+    margin-bottom: 50px;
+  }
+  
+  .footerLogo {
+    img {
+      height: 100px;
+    }
+  }
+  
+  .footerColBlock {
+    margin-bottom: 35px;
+    
+    .footerHeading {
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+  }
+  
+  .footerMenuList {
+    a {
+      font-size: 15px;
+    }
+  }
+  
+  .footerInnerBottom {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    
+    p, a {
+      font-size: 13px;
+    }
+  }
+}
+
+@include tablet {
+  .footerBody {
+    padding: 70px 0 35px;
+  }
+  
+  .ftBgItem {
+    svg {
+      width: 250px;
+    }
+  }
+  
+  .footerColBlock {
+    margin-bottom: 40px;
+  }
+  
+  .footerInnerBottom {
+    p, a {
+      font-size: 14px;
+    }
+  }
+}
+
+@include tablet-landscape {
+  .footerInnerBottom {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}
+
+// Touch device optimizations
+@include touch-device {
+  .footerMenuList {
+    a {
+      &:hover {
+        transform: none;
+      }
+      
+      &:active {
+        color: var(--color-accent);
+      }
+    }
+  }
+}
