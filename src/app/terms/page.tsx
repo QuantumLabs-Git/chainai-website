@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import styles from '../services/services.module.scss'
+import styles from '../legal.module.scss'
 
 export const metadata: Metadata = {
   title: 'Terms & Conditions | ChainAI - Service Agreement & Legal Terms',
