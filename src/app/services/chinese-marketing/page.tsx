@@ -183,8 +183,8 @@ export default function ChineseMarketingPage() {
                   {category.services.map((service, serviceIndex) => (
                     <div key={serviceIndex} className="col-md-6 col-lg-3 mb-4">
                       <div className={styles.serviceCard}>
-                        <h4>{service.platform || service.tier || service.outlet}</h4>
-                        <p>{service.services || service.followers || service.type}</p>
+                        <h4>{(service as any).platform || (service as any).tier || (service as any).outlet}</h4>
+                        <p>{(service as any).services || (service as any).followers || (service as any).type}</p>
                         <div className="price">{service.price}</div>
                       </div>
                     </div>
